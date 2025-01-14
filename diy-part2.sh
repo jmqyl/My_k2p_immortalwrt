@@ -36,6 +36,15 @@ sed -i "s/luci-static\/bootstrap/luci-static\/argon/g" feeds/luci/modules/luci-b
 # echo 'WNMEnable=1' >> package/kernel/mt-drivers/mt_wifi/files/mt7615.1.2G.dat
 # echo 'WNMEnable=1' >> package/kernel/mt-drivers/mt_wifi/files/mt7615.1.5G.dat
 
+#luci-app-msd_lite
+rm -rf feeds/luci/applications/luci-app-msd_lite
+git clone https://github.com/hejiadong0608/luci-app-msd_lite feeds/luci/applications/luci-app-msd_lite
+
+#luci-app-xupnpd
+rm -rf feeds/luci/applications/luci-app-xupnpd
+git clone https://github.com/jarod360/luci-app-xupnpd feeds/luci/applications/luci-app-xupnpd
+
+
 ##### K2P-32M修改编译文件 ######
 sed -i '/spi-max-frequency/a\\t\tbroken-flash-reset;' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 sed -i 's/<0xa0000 0xf60000>/<0xa0000 0x1fb0000>/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
